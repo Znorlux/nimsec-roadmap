@@ -1,15 +1,9 @@
 # calculadora.nim
 import strutils, strformat
-#[
-  This is a multiline comment.
-  In Nim, multiline comments can be nested, beginning with #[
-  ... and ending with ]#
-]#
-# Paso 1: Pide dos números y una operación
-import strformat, strutils
-
+# Paso 1: Almacena las operaciones en una lista
 const operaciones = @["Suma", "Resta", "Multiplicación", "División"]
 
+# Paso 2: Pedir los numeros
 stdout.write("Ingresa el primer número: ")
 let num1str = stdin.readLine()
 if num1str.allCharsInSet({'0'..'9'}): # si todos los caracteres de una cadena están dentro del conjunto (Equivale a: {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'})
@@ -22,12 +16,12 @@ if num1str.allCharsInSet({'0'..'9'}): # si todos los caracteres de una cadena es
     echo "Las operaciones disponibles son las siguientes:"
     for i, op in operaciones:
       echo fmt"{i + 1}. {op}"
-
+# Paso 3: Pedir la operación al usuario
     stdout.write("Ingresa el número de la operación que quieres realizar (ej. 1 para suma): ")
     let operacionStr = stdin.readLine()
     if operacionStr.allCharsInSet({'1'..'4'}):
       let operacion = operacionStr.parseInt()
-
+# Paso 4: realizar case switch dependiendo de la selección del usuario y realizar operación
       case operacion:
         of 1: echo fmt"Resultado: {num1} + {num2} = {num1 + num2}"
         of 2: echo fmt"Resultado: {num1} - {num2} = {num1 - num2}"
