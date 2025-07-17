@@ -78,7 +78,3 @@ nim r proyecto.nim
 
 @Znorlux -
 Cybersecurity Researcher & Developer
-
-```
-
-```
